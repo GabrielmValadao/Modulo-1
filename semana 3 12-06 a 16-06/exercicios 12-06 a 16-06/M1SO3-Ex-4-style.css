@@ -1,0 +1,38 @@
+:root {
+    font-family: monospace;
+}
+
+legend { 
+    background-color: grey;
+}
+
+label {
+    width: 80px;
+    height: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: navy;
+}
+
+
+
+fieldset {
+    width: 400px;
+    height: 400px;
+    background-color: skyblue;
+    line-height: 30px;
+    margin: 10px auto;
+    border: 2px solid gray;
+    padding: 10px;
+}
+
+#nome ,#data-nascimento ,#cpf , #municipios { 
+    border-radius: 5px;
+    width: 50%;
+}
+
+
+
+

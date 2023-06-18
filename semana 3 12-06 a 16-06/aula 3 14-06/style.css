@@ -1,0 +1,13 @@
+
+body {
+    background-color: blueviolet;
+    font-family: monospace; 
+    /* monospace ajuda no alinhamento das linhas do projeto */ 
+} 
+
+main {
+    margin: 30px;
+    border: 1px solid;
+    padding: 40px;
+}
+

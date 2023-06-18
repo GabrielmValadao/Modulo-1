@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="M1SO3-Ex-4-style.css" />
     <title>Formulário de cadastro</title>
-</head>
-<body>
-    <h1>Formulário de cadastro</h1>
-    <h2>Preencha os dados</h2>
-
-    <p>Nome:</p>
-    <p>Data de Nascimento:</p>
-    <p>CPF:</p>
-    <p>Municípo:</p>
+  </head>
+  <body>
+    <header>
+      <h1>Formulário de cadastro</h1>
+    </header>
     
-</body>
+    <form>
+      <fieldset>
+      <legend>Preencha os dados</legend>
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="Nome" />         
+          <br>
+          <label for="data-nascimento">Data de Nascimento:</label>
+          <input type="date" id="data-nascimento" name="Data de nascimento" /> 
+          <br>        
+          <label for="cpf">CPF:</label>
+          <input type="text" id="cpf" name="CPF" />
+          <br>
+          <label for="municipio" id="municipio">Município:</label>
+          <select id="municipios">
+            <option value="selecione">Selecione</option>
+            <option value="santa Cruz do sul">Santa Cruz do Sul</option>
+            <option value="santa Maria">Santa Maria</option>
+            <option value="porto Alegre">Porto Alegre</option>
+          </select>
+      </fieldset>
+    <form
+  </body> 
 </html>
