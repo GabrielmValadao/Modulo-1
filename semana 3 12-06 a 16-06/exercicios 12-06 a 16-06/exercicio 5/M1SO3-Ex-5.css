@@ -1,0 +1,14 @@
+:root {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
