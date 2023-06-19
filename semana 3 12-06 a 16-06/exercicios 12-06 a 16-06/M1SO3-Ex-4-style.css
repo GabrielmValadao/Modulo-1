@@ -1,31 +1,44 @@
 :root {
     font-family: arial;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 h1 {
     text-align: center;
     color: navy;
+    margin: 10px;
 }
 
+.informações {
+    background-color: rgb(107, 183, 233);
+}
 
-.container {
-    width: 100%;
-    height: 100%;
+div {
     display: flex;
-    flex-direction: column;
+    gap: 20px;
+    padding: 5px;
 }
 
-fieldset {
-    line-height: 30px;
+.formulario {
+    margin: 0 auto;
+    font-size: 1rem;
 }
 
-.informações { 
-    margin: 1px;
-    border: 20px;
-    padding: 10px 20px;
-    background-color: rgb(14, 152, 244);
-    text-align: center;
+label {
+    width: 150px;
 }
+
+input, select {
+    border-radius: 5px;
+    border-style: none;
+}
+
+.botao {
+    background-color: gray;
+    font-size: 1rem;
+    margin: 5px;
+}
+
+.botao:hover {
+    background: #0095ff;
+}
+
