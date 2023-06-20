@@ -1,38 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="M1SO3-Ex-5.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="M1SO3-Ex-5.css" />
     <title>Exercicio 5</title>
-</head>
-<body>
-    <div>
-        <header>
-            <h1>FILMES-FLIX</h1>
-            <select id="opçoes-idiota">
-                <option value="portugues-br">Português</option>
-                <option value="ingles">Inglês</option>
-                <option value="espanhol">Espanhol</option>
-            </select>
-            <button submit="entrar">Entrar</button>
-        </header>
-        <main>
-            <h1>Filmes, séris e muito mais.
-                Sem limites.
-            </h1>
+  </head>
+  <body>
+    <header>
+      <h1>FILMES-FLIX</h1>
 
-            <p>Assista onde quiser e quando quiser</p>
+      <div class="botoes">
+        <select id="opçoes-idioma" class="idioma">
+          <option value="portugues-br">Português</option>
+          <option value="ingles">Inglês</option>
+          <option value="espanhol">Espanhol</option>
+        </select>
 
-            <p>Pronto para assistir? Pesquise seu filme favorito.</p>
-            <input type="text" id="pesquisar"/>
-            <button submit="pesquisar">Pesquisar</button>
-        </main>
-        <footer>
+        <input type="submit" value="Entrar" class="entrar" />
+      </div>
+    </header>
+    <main>
+      <div class="primeira-pagina">
+        <div class="conteudo-primeira-pagina">
+          <h1>Filmes, séries e muito mais. Sem limites.</h1>
+
+          <p>Assista onde quiser e quando quiser</p>
+
+          <p>Pronto para assistir? Pesquise seu filme favorito.</p>
+          <div class="input-pesquisar">
+            <input type="text" id="pesquisar" />
+          </div>
+          <div class="submit-pesquisar">
+            <button submit="pesquisar">Pesquisar</button>  
+          </div>
+        </div>
+      </div>
+
+      <div class="segunda-pagina">
+        <div class="flex">
+          <div>
             <h1>Aproveite em todo lugar!</h1>
-            <img src="filmes oscar.jpg" alt="Imagem 1">
-        </footer>
-    </div>
-    
-</body>
+            <p>
+              Assista na TV, Xbox, Celular e em qualquer outro dispositivo a
+              qualquer momento!
+            </p>
+          </div>
+
+          <img src="filmes oscar.jpg" alt="Imagem-filmes" width="500" />
+        </div>
+      </div>
+
+      <div class="terceira-pagina">
+        <div class="flex">
+          <img src="series-netflix.jpg" alt="Imagem-series" width="500" />
+          <div>
+            <h1>Baixe séries para assistir offline!</h1>
+            <p>
+              Salve seus títulos favoritos e sempre tenha algo para assistir
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="quarta-pagina">
+        <div class="flex">
+          <div class="lista">
+            <h1>Vantagens:</h1>
+            <ul>
+              <li>Baixo Custo</li>
+              <li>Assistir em todo lugar</li>
+              <li>Cancelamento facilitado</li>
+              <li>Muito conteúdo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="flex">
+        <div class="links">
+          <a href="">Perguntas Frequentes</a>
+          <a href="">Relações com Investidores</a>
+          <a href="">Formas de assistir</a>
+          <a href="">Informações corporativas</a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
