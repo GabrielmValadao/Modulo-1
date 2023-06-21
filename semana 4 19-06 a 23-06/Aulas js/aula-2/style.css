@@ -1,0 +1,46 @@
+.formulario {
+    width: 40%;
+    margin: 0 auto;
+
+    border-radius: 4px;
+    border: 1px solid #999;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+input {
+    height: 54px;
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid gray;
+    outline: none;
+}
+
+button {
+    width: 80%;
+    height: 54px;
+    background-color: rgb(66, 150, 234);
+
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* para trocar a cor do elemento ao passar o meu, usar hover */
+
+button:hover {
+    background-color: rgb(36, 98, 255);
+}
+
+a {
+    text-decoration: none;
+    color: gray;
+}
+
+a:hover {
+    text-decoration: underline;
+}

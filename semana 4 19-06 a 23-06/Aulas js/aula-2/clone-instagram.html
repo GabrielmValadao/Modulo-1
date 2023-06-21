@@ -7,25 +7,32 @@
     <title>Clone Instagram</title>
 </head>
 <body>
-    <div>
-        <img 
-        src=
-        "https://logosmarcas.net/wp-content/uploads/2020/04/Instagram-Logo.png" 
-        alt="Logo do instagram"
-        width="300px" />
+    
+        <form class="formulario">
+            <img 
+            src="https://logosmarcas.net/wp-content/uploads/2020/04/Instagram-Logo.png" 
+            alt="Logo do instagram"
+            width="300px" />
 
-        <form action="">
-        <input 
-        type="text" placeholder="Telefone, nome do usuário ou e-mail" />
+            <input 
+            id="campo-email" 
+            autofocus
+            type="text" 
+            placeholder="Telefone, nome do usuário ou e-mail" />
 
-        <input 
-        type="password" placeholder="Senha" />
+            <input 
+            id="campo-senha"
+            type="password" 
+            placeholder="Senha" />
+            
+            <button 
+            type="button" onclick="clicarNoBotao()">Entrar</button>
+            
+            
+            <a href="">Esqueci minha Senha</a>
         </form>
         
-        <button>Entrar</button>
+        <script src="script.js"></script>
 
-
-        <a href="">Esqueci minha Senha</a>
-    </div>
 </body>
 </html>
