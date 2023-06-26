@@ -1,0 +1,141 @@
+* {
+    background-color: #f2f2f2;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.input-box label {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+
+.input-field input {
+    margin: 1px ;
+    border: 1px solid;
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 1px 1px;
+}
+
+.input-field input::-webkit-outer-spin-button,
+.input-field input::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+#buttons {
+    display: flex;
+}
+
+#calculate {
+    font-size: 1.05rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(213, 172, 252);
+    border: 1px solid;
+    margin: 1px;
+    padding: 3px 3px;
+    width: 100%;
+}
+
+#limpar {
+    font-size: 1.05rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(213, 172, 252); 
+    border: 1px solid;
+    margin: 1px;
+    padding: 3px 3px;
+    width: 100%;
+}
+
+#calculate:hover {
+    opacity: 0.8;
+}
+
+#limpar:hover {
+    opacity: 0.8;
+}
+
+#result {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    border-top: 1px solid gray;
+    padding: 0.75rem 0;
+    color: black;
+}
+
+#imc {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2.25rem; 
+}
+
+#imc span:last-child {
+    font-size: 1rem;
+    color: black;
+
+}
+
+#description {
+    width: 100%;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.normal {
+    color: #252525;
+    background-color: #16a34a;
+}
+
+.levemente {
+    color: #252525;
+    background-color: #ffca00;
+}
+
+.attencion {
+    color: #252525;
+    background-color: red;
+}
+
+.abaixo {
+    color: #252525;
+    background-color: rgb(108, 108, 244);
+}
