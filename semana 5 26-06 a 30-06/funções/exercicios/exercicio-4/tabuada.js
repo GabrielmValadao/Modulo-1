@@ -1,6 +1,5 @@
 console.log("m1-s05-e4");
 
-const numero = prompt("Informe um número:");
 
 function tabuada(numero) {
     for (let i = 1; i <= 10; i++) {
@@ -9,4 +8,5 @@ function tabuada(numero) {
     }
 };
 
+const numero = prompt("Informe um número:");
 tabuada(numero);
