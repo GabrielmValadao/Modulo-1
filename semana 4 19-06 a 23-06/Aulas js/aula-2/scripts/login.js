@@ -1,7 +1,9 @@
 //validação do que o usuario vai digitar
 //criação de um array de objetos
 const usuarios = [
-    
+    {email: 'henrique@gmail.com', password: 'devinhouse123'},
+    {email: 'douglas@gmail.com', password: 'devinhouse321'},
+    {email: 'cavalcante@gmail.com', password: 'senha'}
 ]
 
 function clicarNoBotao () {
@@ -40,10 +42,18 @@ function clicarNoBotao () {
         document.getElementById("login-button").disabled = true
         document.getElementById("login-button").style.opacity = 0.5
         /*valor ideial para opacidade é o 0.5 */
-        document.getElementById("login-button").innerText = "Entrando..."
+        document.getElementById("login-button").innerText = "Logando..."
 
-        /*redireciona para outra pagina de minha aplicação*/
-        window.location.href = "./home.html";
+        // const para validação de find 
+        const usuarioEncontrado = usarios.find(usuario => usuario.email === email && usuario.password === senha)
+
+        if (usuarioEncontrado) {
+            /*redireciona para outra pagina de minha aplicação*/
+            window.location.href = "./home.html";
+        } else {
+            alert("Usuário não encontrado!")
+        }
+        
     }
 
     
