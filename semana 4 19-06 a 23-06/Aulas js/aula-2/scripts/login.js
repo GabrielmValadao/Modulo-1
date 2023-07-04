@@ -1,10 +1,6 @@
-//validação do que o usuario vai digitar
-//criação de um array de objetos
-const usuarios = [
-    {email: 'henrique@gmail.com', password: 'devinhouse123'},
-    {email: 'douglas@gmail.com', password: 'devinhouse321'},
-    {email: 'cavalcante@gmail.com', password: 'senha'}
-]
+import {usuarios} from '../constantes/usuarios.js'
+
+document.getElementById("login-button").addEventListener("click", clicarNoBotao);
 
 function clicarNoBotao () {
     const email = document.getElementById("campo-email").value 
@@ -45,7 +41,7 @@ function clicarNoBotao () {
         document.getElementById("login-button").innerText = "Logando..."
 
         // const para validação de find 
-        const usuarioEncontrado = usarios.find(usuario => usuario.email === email && usuario.password === senha)
+        const usuarioEncontrado = usuarios.find(usuario => usuario.email === email && usuario.password === senha)
 
         if (usuarioEncontrado) {
             /*redireciona para outra pagina de minha aplicação*/
