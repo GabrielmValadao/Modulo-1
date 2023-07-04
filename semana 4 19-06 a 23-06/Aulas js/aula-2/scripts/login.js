@@ -51,6 +51,12 @@ function clicarNoBotao () {
             /*redireciona para outra pagina de minha aplicação*/
             window.location.href = "./home.html";
         } else {
+
+            //comando para informar a o botão de não mudar seu nome para ''logando'' ao clicar e estiver errada a validação
+            document.getElementById('login-button').disabled = false
+            document.getElementById('login-button').style.opacity = 1
+            document.getElementById('login-button').innerText = "Entrar"
+
             alert("Usuário não encontrado!")
         }
         
