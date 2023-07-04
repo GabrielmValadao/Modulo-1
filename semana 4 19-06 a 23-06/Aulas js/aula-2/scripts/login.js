@@ -1,8 +1,15 @@
+//validação do que o usuario vai digitar
+//criação de um array de objetos
+const usuarios = [
+    
+]
+
 function clicarNoBotao () {
-    var email = document.getElementById("campo-email").value 
-    var senha = document.getElementById("campo-senha").value
+    const email = document.getElementById("campo-email").value 
+    const senha = document.getElementById("campo-senha").value
 
     document.getElementById("campo-email").classList.remove("input-error")
+    //remove a classe de erro do input, ao recarregar
     document.getElementById("campo-senha").classList.remove("input-error")
 
     console.log(email)
@@ -36,8 +43,7 @@ function clicarNoBotao () {
         document.getElementById("login-button").innerText = "Entrando..."
 
         /*redireciona para outra pagina de minha aplicação*/
-
-        window.location.href = "home.html";
+        window.location.href = "./home.html";
     }
 
     
