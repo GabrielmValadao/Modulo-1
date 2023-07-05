@@ -33,7 +33,8 @@ const urls = [
 
   function gerarLista() {
         urls.map((url) => {
-             const img = document.createElement('img')     // <img src="" />
+             const img = document.createElement('img')      // <img src="" />
+             //create element serve para criamos elementos dentro do codigo
              img.setAttribute('src', url)  // <img src="url" />
 
              document.getElementById('lista').appendChild(img) 
