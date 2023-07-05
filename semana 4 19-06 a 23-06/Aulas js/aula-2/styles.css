@@ -158,3 +158,28 @@ body {
     width: 100%;
     height: auto;
 }
+
+/* CSS Seguidores */
+
+.tabela-seguidores {
+    width: 100%;
+    border: 0;
+}
+
+.tabela-seguidores thead {
+    background-color: #286ee0;
+    color: #FFF;
+}
+
+.tabela-seguidores tbody tr {
+    height: 48px;
+}
+
+.tabela-seguidores tbody tr td {
+    text-align: center;
+}
+
+td img {
+    border-radius: 50%;
+    width: 60px;
+}
