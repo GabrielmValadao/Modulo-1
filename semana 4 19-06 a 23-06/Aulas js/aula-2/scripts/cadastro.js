@@ -1,6 +1,5 @@
-// validação dos dados do telefone como padrão no brasil, atraves de rejects, solicitar rejects sobre o que quero validar atraves do chatgpt 
-var regexTelefone = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
-var regexEMail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+import { regexTelefone } from "../constantes/regex"
+import {regexEMail} from "../constantes/regex"
 
 function fazerCadastro() {
     var nome = document.getElementById("nome-completo").value
