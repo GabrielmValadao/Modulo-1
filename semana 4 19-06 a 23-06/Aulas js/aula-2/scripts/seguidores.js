@@ -10,7 +10,7 @@ document.getElementById('form-pesquisa').addEventListener('submit', (event) => {
 
     document.getElementById('corpo-tabela').innerHTML = ''
 
-    //continua amanhã
+    
 })
 
 function criarLinhasTabela () {
@@ -55,6 +55,10 @@ function criarLinhasTabela () {
 
         document.getElementById('corpo-tabela').appendChild(tr)
     })
+}
+
+function gerarLinhasDaTabela() {
+    
 }
 
 window.onload = criarLinhasTabela
