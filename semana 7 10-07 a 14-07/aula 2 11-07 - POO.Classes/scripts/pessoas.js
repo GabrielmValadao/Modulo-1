@@ -8,3 +8,5 @@ export default class Pessoa {
         console.log(this.idade);
     }
 }
+
+//class sempre precisam começar com letra maiuscula 
