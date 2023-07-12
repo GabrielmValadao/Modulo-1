@@ -1,29 +1,29 @@
+import Item from "./Item.js";
+import { dadosLista } from "./dados.js";
+
 console.log("m1_s07_a3");
 
 const elemLista = document.getElementById("lista-itens");
+let listaControle = [];
 
-const dadosLista = [
-    "Item 1",
-    "Item 2",
-    "Item 3",
-];
-
-function criaItem (item) {
-    const li = document.createElement("li");
-    li.innerHTML = item;
-    return li;
+function criaInstanciasItens(lista) {
+  return lista.map((item) => {
+    return new Item(item);
+  });
 }
 
 function atualizaTela() {
-    elemLista.innerHTML = "";
+  elemLista.innerHTML = "";
 
-    dadosLista.forEach((item) => {
-        const li = document.createElement("li");
-        li.innerHTML = item;
-
-        elemLista.appendChild(li);
-    })
+  listaControle.forEach((item) => {
+    const elemItem = item.criaItem();
+    elemLista.appendChild(elemItem);
+  });
 }
 
-
-atualizaTela();
+// função anônima de uso único
+(function () {
+  // inicialização da nossa aplicação
+  listaControle = criaInstanciasItens(dadosLista);
+  atualizaTela();
+})();
