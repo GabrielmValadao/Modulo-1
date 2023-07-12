@@ -35,3 +35,21 @@ console.log(maria);
 
 jose.mostraIdade();
 maria.mostraIdade();
+
+
+//exemplo video aula 
+// criação básica de uma class
+class Nome{
+    constructor(name) {
+        this.name = name
+    }
+}
+
+const pessoa = new Nome('Gabriel');
+
+console.log(pessoa.name);
+
+
+
+
+
