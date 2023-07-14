@@ -1,3 +1,5 @@
+//fazemos uma extensão de Item.js que é a base para ItemTarefa
+
 import Item from "./Item.js";
 
 class ItemTarefa extends Item {
