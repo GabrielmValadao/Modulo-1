@@ -1,20 +1,26 @@
 import {usuarios} from '../constantes/usuarios.js'
 
-document.getElementById("login-button").addEventListener("click", clicarNoBotao);
+document.getElementById("form-login").addEventListener("submit", realizarLogin);
 
-function clicarNoBotao () {
-    const email = document.getElementById("campo-email").value 
-    const senha = document.getElementById("campo-senha").value
+const campoEmail = document.getElementById('campo-email');
+const campoSenha = document.getElementById('campo-senha');
+const loginButton = document.getElementById("login-button");
 
-    document.getElementById("campo-email").classList.remove("input-error")
+function realizarLogin (event) {
+     event.preventDefault() //impede a tela de recarregar ao clicar no botão
+
+    const email = campoEmail.value 
+    const senha = campoSenha.value
+
+    campoEmail.classList.remove("input-error")
     //remove a classe de erro do input, ao recarregar
-    document.getElementById("campo-senha").classList.remove("input-error")
+    campoSenha.classList.remove("input-error")
 
     console.log(email)
     console.log(senha)
 
     if (email === "") {
-        /* mudando estilo do input após não colocar um informação */
+        /* mudando estilo do input após não colocar uma informação */
         /*adiciona um estilo inline
         document.getElementById('campo-email').style = "border-color: red"
         alert("E-mail é obrigatório") */
@@ -24,21 +30,21 @@ function clicarNoBotao () {
         */
 
         /* estlio recomendado de se usar, linkando css com js */
-        document.getElementById("campo-email").classList.add("input-error")
-        document.getElementById("campo-email").focus()
+        campoEmail.classList.add("input-error")
+        campoEmail.focus()
     }
 
     else if (senha === "") {
-        document.getElementById("campo-senha").classList.add("input-error")
-        document.getElementById("campo-senha").focus() 
+        campoSenha.classList.add("input-error")
+        campoSenha.focus() 
     }
 
     else {
         /*codigo de feedback visual ao clicar no button */
-        document.getElementById("login-button").disabled = true
-        document.getElementById("login-button").style.opacity = 0.5
+        loginButton.disabled = true
+        loginButton.style.opacity = 0.5
         /*valor ideial para opacidade é o 0.5 */
-        document.getElementById("login-button").innerText = "Logando..."
+        loginButton.innerText = "Logando..."
 
         // const para validação de find 
         const usuarioEncontrado = usuarios.find(usuario => usuario.email === email && usuario.password === senha)
@@ -49,20 +55,12 @@ function clicarNoBotao () {
         } else {
 
             //comando para informar a o botão de não mudar seu nome para ''logando'' ao clicar e estiver errada a validação
-            document.getElementById('login-button').disabled = false
-            document.getElementById('login-button').style.opacity = 1
-            document.getElementById('login-button').innerText = "Entrar"
+            loginButton.disabled = false
+            loginButton.style.opacity = 1
+            loginButton.innerText = "Entrar"
 
             alert("Usuário não encontrado!")
         }
         
     }
-
-    
-
-
-
-
 }
-
-
