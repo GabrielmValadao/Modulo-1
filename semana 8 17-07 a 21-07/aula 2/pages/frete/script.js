@@ -5,5 +5,23 @@ function exibirDados(event) {
 
     const cep = document.getElementById('cep').value;
 
-    fetch('https://viacep.com.br/ws/96810174/json/') 
+    if (cep.length > 8 )    
+    fetch(`https://viacep.com.br/ws/${cep}/json/`) 
+    // captura a resposta 
+    .then ((response) => response.json())
+    .then ((data) => {
+        const resultDiv = document.getElementById('result');
+        
+            resultDiv.innerHTML =
+            <p>Endereco: ${data.logradouro}</p>
+            <p>Bairro: ${data.bairro}</p>
+            <p>Cidade: ${data.localidade}</p>
+            <p>UF: ${data.uf}</p>
+            <p>DDD: ${data.ddd}</p>
+    })
+    // pega um erro que acaba acontecendo dentro de then
+    .catch(() => {
+        alert("Erro ao fazer a solicitação");
+    })
 }
+
