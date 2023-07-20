@@ -39,12 +39,6 @@ function clicarNoBotao () {
 
         window.location.href = "https://www.google.com.br/?hl=pt-BR&safe=active&ssui=on" 
     }
-
-    
-
-
-
-
 }
 
 

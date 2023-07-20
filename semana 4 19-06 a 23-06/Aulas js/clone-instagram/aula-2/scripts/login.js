@@ -2,9 +2,23 @@ import {usuarios} from '../constantes/usuarios.js'
 
 document.getElementById("form-login").addEventListener("submit", realizarLogin);
 
+document.getElementById("aceitar").addEventListener("click", salvarDecisao);
+document.getElementById("rejeitar").addEventListener("click", salvarDecisao);
+
+function salvarDecisao() {
+    localStorage.setItem("decisao-permissao", 'ok')
+    document.getElementById('modal-permission').style.display = 'none'
+   
+}
+
 const campoEmail = document.getElementById('campo-email');
 const campoSenha = document.getElementById('campo-senha');
 const loginButton = document.getElementById("login-button");
+
+function resetForm() {
+    campoEmail.classList.remove("input-error")
+    campoEmail.classList.remove("input-error")
+}
 
 function realizarLogin (event) {
      event.preventDefault() //impede a tela de recarregar ao clicar no botão
@@ -12,55 +26,51 @@ function realizarLogin (event) {
     const email = campoEmail.value 
     const senha = campoSenha.value
 
-    campoEmail.classList.remove("input-error")
-    //remove a classe de erro do input, ao recarregar
-    campoSenha.classList.remove("input-error")
-
-    console.log(email)
-    console.log(senha)
+    resetForm()
 
     if (email === "") {
-        /* mudando estilo do input após não colocar uma informação */
-        /*adiciona um estilo inline
-        document.getElementById('campo-email').style = "border-color: red"
-        alert("E-mail é obrigatório") */
-
-        /*adiciona um estilo direto no ob 
-        document.getElementById("campo-email").style.backgroundColor = 'red'
-        */
-
-        /* estlio recomendado de se usar, linkando css com js */
         campoEmail.classList.add("input-error")
         campoEmail.focus()
-    }
-
-    else if (senha === "") {
+    } else if (senha === "") {
         campoSenha.classList.add("input-error")
-        campoSenha.focus() 
-    }
-
-    else {
-        /*codigo de feedback visual ao clicar no button */
+        campoSenha.focus()
+    } else {
         loginButton.disabled = true
         loginButton.style.opacity = 0.5
-        /*valor ideial para opacidade é o 0.5 */
-        loginButton.innerText = "Logando..."
+        loginButton.innerHTML = "Logando..."
 
-        // const para validação de find 
         const usuarioEncontrado = usuarios.find(usuario => usuario.email === email && usuario.password === senha)
+    
 
-        if (usuarioEncontrado) {
-            /*redireciona para outra pagina de minha aplicação*/
+    if(usuarioEncontrado) {
+        //redireciona para outra pagina
+        localStorage.setItem("nome_usuario", "joao")
+
+        campoEmail.style.display = 'none'
+        campoSenha.style.display = 'none'
+        loginButton.style.display = 'none'
+
+        document.getElementById("form-login").innerHTML = "Entrando..."
+
+        setTimeout(() => {
             window.location.href = "./home.html";
-        } else {
+        }, 3000)
+    } else {
+        loginButton.disabled = false
+        loginButton.style.opacity = 1
+        loginButton.innerHTML = "Entrar"
 
-            //comando para informar a o botão de não mudar seu nome para ''logando'' ao clicar e estiver errada a validação
-            loginButton.disabled = false
-            loginButton.style.opacity = 1
-            loginButton.innerText = "Entrar"
-
-            alert("Usuário não encontrado!")
+        alert("Usuário não foi encontrado")
         }
-        
     }
 }
+
+function exibirModal() {
+    const decisao = localStorage.getItem('decisao-permissao')
+
+    if(decisao !=='ok') {
+        document.getElementById('modal-permission').style.display = 'flex'
+    }
+}
+
+setTimeout(exibirModal, 5000)
