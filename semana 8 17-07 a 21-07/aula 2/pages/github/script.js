@@ -7,7 +7,12 @@ function pesquisarPerfil(event) {
     const username = document.getElementById('username').value
 
     fetch(`https://api.github.com/users/${username}`) // 
-        .then((response) => response.json())
+        .then((response) => {
+          if (response.ok === false) {
+              throw new Error ()
+          }
+          return response.json()
+      })
         .then((data) => {
             const profileDiv = document.getElementById('profile')
 
@@ -17,6 +22,10 @@ function pesquisarPerfil(event) {
             <p>Repositórios públicos: ${data.public_repos} </p>
             <p>Seguidores: ${data.followers} </p>
           `
+        })
+
+        .catch(() => {
+          alert("Erro ao fazer solicitação")
         })
 }
 

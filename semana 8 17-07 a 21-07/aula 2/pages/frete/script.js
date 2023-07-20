@@ -8,7 +8,13 @@ function exibirDados(event) {
     if (cep.length === 8 || cep.length === 9 ) {    
     fetch(`https://viacep.com.br/ws/${cep}/json/`) //GET 
     // captura a resposta 
-    .then ((response) => response.json())
+    .then ((response) => {
+        // if para pegar todos os erros que podem ocorrer no return dessa requisição e manda diretamente para catch 
+        if (response.ok === false) {
+            throw new Error ()
+        }
+        return response.json()
+    })
     .then ((data) => {
         const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `
