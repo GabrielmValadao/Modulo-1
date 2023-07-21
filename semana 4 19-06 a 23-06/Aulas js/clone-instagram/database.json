@@ -1,0 +1,18 @@
+{
+  "usuarios": [
+    {
+      "nome": "Gabriel",
+      "senha": "123456789",
+      "telefone": "51 980579171",
+      "email": "gabriel@gmail.com",
+      "id": 1
+    },
+    {
+      "nome": "Gabriel",
+      "senha": "123456789",
+      "telefone": "51 980579171",
+      "email": "gabriel@gmail.com",
+      "id": 2
+    }
+  ]
+}
