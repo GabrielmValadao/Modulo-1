@@ -1,4 +1,4 @@
-var usuario = {
+const usuario = {
     username: 'douglas#Cavalcante',
     qtd_seguidores: 20,
     qtd_pessoas_seguindo: 20,
@@ -7,7 +7,7 @@ var usuario = {
     foto: 'https://avatars.githubusercontent.com/u/38563983?v=4',
 }
 
-var nomes = [
+const nomes = [
     'https://http.cat/images/202.jpg',
     'https://http.cat/images/202.jpg',
     'https://http.cat/images/202.jpg',
@@ -22,11 +22,11 @@ var nomes = [
 
 function exibirImage() {
 
-    var galeria = document.getElementById('galeria')
+    const galeria = document.getElementById('galeria')
 
     nomes.forEach(item => {
-        var image = document.createElement('img')
-        var div = document.createElement('div')
+       const image = document.createElement('img')
+       const div = document.createElement('div')
         div.classList.add('grid-item')
 
         image.setAttribute('src', item)
