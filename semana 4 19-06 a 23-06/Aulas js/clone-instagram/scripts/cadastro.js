@@ -39,7 +39,7 @@ function fazerCadastro(event) {
     campoSenha.classList.add("input-error");
     document.getElementById("error-senha").hidden = false;
     document.getElementById("error-senha").innerText =
-      "A senha deve no minimo 8 caracteres";
+      "A senha deve ter no minimo 8 caracteres";
   } else if (regexTelefone.test(telefone) === false) {
     campoTelefone.classList.add("input-error");
     document.getElementById("error-telefone").hidden = false;
