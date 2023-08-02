@@ -1,9 +1,8 @@
 <template>
   <div>
-    <h1>Calculadora de IMC</h1>
-    <input type="number" placeholder="Peso" v-model="peso" />
-    <input type="number" placeholder="Altura" v-model="altura" />
-    <button @click="calcular()">Calcular IMC</button>
+    <h1>Numero par ou impar</h1>
+    <input type="number" placeholder="Digite o número" v-model="numero" />
+    <button @click="verificar()">Verificar</button>
     <span>{{ resultado }}</span> 
   </div>
 </template>
@@ -12,20 +11,21 @@
 export default {
   data(){
     return {
-      peso: 0,
-      altura: 0,
+      numero: 0,
       resultado: ""
     }
   },
 
   methods: {
-    calcular() {
-      if(this.peso == 0 || this.altura == 0) {
-        alert("Os dados precisam ser maiores que 0")
+    verificar() {
+      if(this.numero === "") {
+        alert("Digite um número")
         return
+      } else if (this.numero % 2 === 0) {
+        this.resultado = "O número é par!"
+      } else {
+        this.resultado = "O número é impar"
       }
-
-      this.resultado = (this.peso / (this.altura ** 2)).toFixed(2)
     }
   }
   
