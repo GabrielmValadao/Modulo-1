@@ -4,8 +4,8 @@
 
     <h1>Lista de cursos</h1> <br>
     <!-- 3 - Reendeniza na tela -->
-    <!-- v-for reendeniza a lista -->
-    <!-- key deve ser informado para o não repetir os dados da lista, por hora se usa index, se não passar o id ou qualquer valor unico dentro desse projeto  -->
+    <!-- v-for reendeniza a lista e faz o loop -->
+    <!-- key deve ser informado para o não repetir os dados da lista, por hora se usa index, se não passar o id ou qualquer valor unico dentro desse projeto, com ele o loop infinito nunca vai ocorrer  -->
     <CursoItem 
     v-for="(curso, index) in listaCursos"
     :key="index" 
