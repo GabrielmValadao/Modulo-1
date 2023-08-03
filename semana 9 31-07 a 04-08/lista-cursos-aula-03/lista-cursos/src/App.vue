@@ -11,8 +11,8 @@
 <script>
 export default {
   // cria a lista dos cursos
-  // função que retornar um objeto
   data() {
+    // função que retornar um objeto
     return {
       listaCursos: [
         {
