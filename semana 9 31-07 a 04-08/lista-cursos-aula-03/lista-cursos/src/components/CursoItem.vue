@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1>Título: {{ titulo }} </h1> <br>
-        <p>Duração: {{ duracao }}</p> <br>
+        <h1>Título: {{ titulo }} </h1> 
+        <p>Duração: {{ duracao }}</p> 
         <p>Vagas: {{ vagas }}</p>
     </div>
 </template>
