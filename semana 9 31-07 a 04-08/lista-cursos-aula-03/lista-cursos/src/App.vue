@@ -30,8 +30,10 @@
     :key="index" 
     v-bind:titulo="curso.titulo" 
     :duracao="curso.duracao" 
-    :vagas="curso.vagas" />
-
+    :vagas="curso.vagas" 
+    @inscrever="inscrever"
+    />
+    
     <!-- O v-bind é uma diretiva que nos permite passar valores JS dentro das props -->
 
   </div>
@@ -66,6 +68,11 @@ export default {
           vagas: 40
         }
       ]
+    }
+  },
+  methods: {
+    inscrever() {
+      alert("Aluno quer se inscrever")
     }
   }
 }
