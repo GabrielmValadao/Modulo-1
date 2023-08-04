@@ -3,6 +3,7 @@
         <h1>Título: {{ titulo }} </h1> 
         <p>Duração: {{ duracao }}</p> 
         <p>Vagas: {{ vagas }}</p>
+        <button @click="$emit('inscrever')">Inscrever-se</button>
     </div>
 </template>
 
