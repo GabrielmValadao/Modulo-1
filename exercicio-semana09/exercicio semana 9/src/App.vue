@@ -1,13 +1,16 @@
 <template>
   <div>
-    
+
   </div>
 </template>
 <script>
-export default {
-  
-}
+    import Header from "./components/Header.vue"
+  export default {
+    components : {
+      Header
+    }
+  }
 </script>
-<style>
+<style scoped>
   
 </style>
