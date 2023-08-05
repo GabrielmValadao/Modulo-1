@@ -13,6 +13,11 @@
     components : {
       Header,
       FormularioNovoMedicamento, 
+    },
+    data() {
+      return {
+        listaMedicamentos: []
+      }
     }
   }
 </script>
