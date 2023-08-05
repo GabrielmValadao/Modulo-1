@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <h2>FARMACIA Z</h2>
+        <h2>FARMACIA DEVS</h2>
     </header>
 </template>
 
