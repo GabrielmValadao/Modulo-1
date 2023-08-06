@@ -9,6 +9,7 @@
     import {v4 as uuidv4} from 'uuid'; 
     import Header from "./components/Header.vue"
     import FormularioNovoMedicamento from "./components/FormularioNovoMedicamento/index.vue"
+    import CardMedicamento from "./components/CardMedicamento/index.vue"
 
   export default {
     components : {
