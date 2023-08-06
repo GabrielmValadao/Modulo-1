@@ -14,6 +14,7 @@ export default {
 </script>
 <style scoped>
     .card {
+        padding: 2px;
         display: flex;
         flex-direction: column;
         width: calc(100%/4);

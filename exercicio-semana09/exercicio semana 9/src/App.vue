@@ -1,7 +1,10 @@
 <template>
   <Header />
   <FormularioNovoMedicamento @cadastrar="AdicionaMedicamento" />
-  <CardMedicamento @favoritar ="FavoritarMedicamento" nome="" laboratorio="" preco="" id=""/>
+  <CardMedicamento 
+  v-for="medicamento in listaMedicamentos"
+  :key="medicamento.id"
+  @favoritar ="FavoritarMedicamento" :nome="medicamento.nome" :laboratorio="medicamento.laboratorio" :preco="medicamento.preco" :id="medicamento.id"/>
   <div class="container">
 
   </div>
@@ -53,7 +56,5 @@
   }
 </script>
 <style scoped>
-  .container {
-    
-  }
+  
 </style>

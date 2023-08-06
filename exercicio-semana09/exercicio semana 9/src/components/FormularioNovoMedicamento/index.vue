@@ -1,7 +1,7 @@
 <template >
     <div class="container">
-        <h3>Formulário de Cadastro de Medicamentos</h3>
-
+        <h4>Formulário de Cadastro de Medicamentos</h4>
+        <br>
         <label for="nome">Nome do Medicamento:</label>
         <input type="text" id="nome" placeholder="Medicamento" v-model="nome"/>
 
@@ -35,12 +35,12 @@ export default {
         gap: 4px;
     }
 
-    .container>h3 {
+    .container>h4 {
         margin: 0 auto;
     }
 
     input {
-        padding: 10px;
+        padding: 3px;
     }
 
 </style>
