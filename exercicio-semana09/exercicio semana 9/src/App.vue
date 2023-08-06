@@ -2,6 +2,7 @@
   <Header />
   <FormularioNovoMedicamento @cadastrar="AdicionaMedicamento" />
   <CardMedicamento 
+  v-if="!!listaMedicamentos"
   v-for="medicamento in listaMedicamentos"
   :key="medicamento.id"
   @favoritar ="FavoritarMedicamento" :nome="medicamento.nome" :laboratorio="medicamento.laboratorio" :preco="medicamento.preco" :id="medicamento.id"/>
@@ -45,7 +46,7 @@
         
         },
         FavoritarMedicamento(id) {
-          //editar o documento e marcar como favorito 
+          //editar o medicamento e marca como favorito 
           this.listaMedicamentos = this.listaMedicamentos.map(item => {
             if(item.id == id){
               item.favorito = !item.favorito
