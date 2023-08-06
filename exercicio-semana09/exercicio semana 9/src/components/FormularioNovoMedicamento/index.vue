@@ -3,13 +3,13 @@
         <h3>Formulário de Cadastro de Medicamentos</h3>
 
         <label for="nome">Nome do Medicamento:</label>
-        <input type="text" id="nome" placeholder="Medicamento" />
+        <input type="text" id="nome" placeholder="Medicamento" v-model="nome"/>
 
         <label for="labotario">Nome do Laboratorio:</label>
-        <input type="text" id="laboratorio" placeholder="Laboratorio" />
+        <input type="text" id="laboratorio" placeholder="Laboratorio" v-model="laboratorio"/>
 
         <label for="preco">Preço:</label>
-        <input type="number" id="preco" placeholder="Preço em R$"/>
+        <input type="number" id="preco" placeholder="Preço em R$" v-model="preco"/>
 
         <button @click="$emit('cadastrar', nome, laboratorio, preco)">Cadastrar</button>
     </div>
@@ -39,5 +39,8 @@ export default {
         margin: 0 auto;
     }
 
+    input {
+        padding: 10px;
+    }
 
 </style>

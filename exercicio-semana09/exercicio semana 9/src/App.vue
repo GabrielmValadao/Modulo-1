@@ -6,6 +6,7 @@
   </div>
 </template>
 <script>
+    import {v4 as uuidv4} from 'uuid'; 
     import Header from "./components/Header.vue"
     import FormularioNovoMedicamento from "./components/FormularioNovoMedicamento/index.vue"
 
@@ -18,7 +19,19 @@
       return {
         listaMedicamentos: []
       }
-    }
+    },
+
+    methods: {
+      AdicionaMedicamento(nome, laboratorio, preco) {
+        let novoMedicamento = {
+          id: uuidv4(), 
+          nome: nome,
+          laboratorio: laboratorio,
+          preco: preco,
+          favorito: false 
+        }
+      }
+    },
   }
 </script>
 <style scoped>
