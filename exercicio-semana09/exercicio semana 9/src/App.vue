@@ -2,7 +2,7 @@
   <Header />
   <FormularioNovoMedicamento @cadastrar="AdicionaMedicamento" />
   <CardMedicamento @favoritar ="FavoritarMedicamento" nome="" laboratorio="" preco="" id=""/>
-  <div>
+  <div class="container">
 
   </div>
 </template>
@@ -53,5 +53,7 @@
   }
 </script>
 <style scoped>
-  
+  .container {
+    
+  }
 </style>
