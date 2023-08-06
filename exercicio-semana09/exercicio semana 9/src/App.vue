@@ -34,11 +34,19 @@
           laboratorio: laboratorio,
           preco: preco,
           favorito: false 
-        }
-
-        this.listaMedicamentos.push(novoMedicamento)
-      }
-    },
+        }  
+          this.listaMedicamentos.push(novoMedicamento)
+        
+        },
+        FavoritarMedicamento(id) {
+          //editar o documento e marcar como favorito 
+          this.listaMedicamentos = this.listaMedicamentos.map(item => {
+            if(item.id == id){
+              item.favorito = !item.favorito
+            }
+          })
+        } 
+    }
   }
 </script>
 <style scoped>
