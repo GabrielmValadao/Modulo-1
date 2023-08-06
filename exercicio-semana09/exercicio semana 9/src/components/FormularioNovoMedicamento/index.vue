@@ -5,8 +5,8 @@
         <label for="nome">Nome do Medicamento:</label>
         <input type="text" id="nome" placeholder="Medicamento" v-model="nome"/>
 
-        <label for="labotario">Nome do Laboratorio:</label>
-        <input type="text" id="laboratorio" placeholder="Laboratorio" v-model="laboratorio"/>
+        <label for="labotario">Nome do Laboratório:</label>
+        <input type="text" id="laboratorio" placeholder="Laboratório" v-model="laboratorio"/>
 
         <label for="preco">Preço:</label>
         <input type="number" id="preco" placeholder="Preço em R$" v-model="preco"/>

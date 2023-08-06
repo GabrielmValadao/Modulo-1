@@ -1,6 +1,7 @@
 <template>
     <header class="header">
-        <h2>FARMACIA DEVS</h2>
+        <img src="https://www.nambroca.com/images/municipio/guia_industr/logos/4-lasnieves.png" alt="logo farmacia" :width="40"> 
+        <h2>FARMÁCIA DEVS</h2>
     </header>
 </template>
 
@@ -12,7 +13,7 @@
     padding: 10px 2em;
     width: 100vw;
     height: 60px;
-    background-color: #e2e2e2;
+    background-color: rgb(222, 222, 222);
     display: flex;
     justify-content: center;
     align-items: center;

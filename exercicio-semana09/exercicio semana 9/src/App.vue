@@ -1,6 +1,7 @@
 <template>
   <Header />
   <FormularioNovoMedicamento @cadastrar="AdicionaMedicamento" />
+  <CardMedicamento @favoritar ="FavoritarMedicamento" nome="" laboratorio="" preco="" id=""/>
   <div>
 
   </div>
@@ -15,6 +16,7 @@
     components : {
       Header,
       FormularioNovoMedicamento, 
+      CardMedicamento
     },
     data() {
       return {
