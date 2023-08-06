@@ -23,13 +23,20 @@
 
     methods: {
       AdicionaMedicamento(nome, laboratorio, preco) {
-        let novoMedicamento = {
+        if (nome == "" || laboratorio == "" || preco == 0) {
+          alert("Preencha todas as informações necessárias!")
+          return
+        }
+
+        const novoMedicamento = {
           id: uuidv4(), 
           nome: nome,
           laboratorio: laboratorio,
           preco: preco,
           favorito: false 
         }
+
+        this.listaMedicamentos.push(novoMedicamento)
       }
     },
   }
