@@ -1,11 +1,11 @@
 <template>
     <div class="card">
         <button @click="$emit('favoritar', id)">Favoritar</button>
-        <span v-if="favorito">Favorito</span>
+        <span v-if="favorito">favorito</span>
         <img src="https://farmaceuticodigital.com/wp-content/uploads/2020/11/WhatsApp-Image-2020-11-20-at-11.27.36-730x669.jpeg.webp" alt="imagem do medicamento" :width="150"/>
-        <p>Nome: {{ nome }}</p>
-        <p>Laboratório: {{ laboratorio }}</p>
-        <p>Preço: {{ preco }}</p>
+        <span>Nome: {{ nome }}</span>
+        <span>Laboratório: {{ laboratorio }}</span>
+        <span>Preço: R$ {{ preco }}</span>
     </div>
 </template>
 <script>

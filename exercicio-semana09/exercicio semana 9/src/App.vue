@@ -2,7 +2,10 @@
   <Header />
   <FormularioNovoMedicamento @cadastrar="AdicionaMedicamento" />
   <div class="container">
-    <CardMedicamento v-if="!!listaMedicamentos" v-for="medicamento in listaMedicamentos" :key="medicamento.id"
+    <CardMedicamento 
+    v-if="!!listaMedicamentos" 
+    v-for="medicamento in listaMedicamentos" 
+    :key="medicamento.id"
     @favoritar="FavoritarMedicamento" 
     :nome="medicamento.nome" 
     :laboratorio="medicamento.laboratorio"
@@ -53,6 +56,9 @@ export default {
         if (item.id == id) {
           item.favorito = !item.favorito
         }
+        console.log(this.listaMedicamentos)
+        return(item)
+
       })
     }
   }

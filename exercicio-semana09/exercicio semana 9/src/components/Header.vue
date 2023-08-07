@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <img src="https://www.nambroca.com/images/municipio/guia_industr/logos/4-lasnieves.png" alt="logo farmacia" :width="40"> 
-        <h2>FARMÁCIA DEVS</h2>
+        <h2>FARMÁCIA.DEV</h2>
     </header>
 </template>
 
