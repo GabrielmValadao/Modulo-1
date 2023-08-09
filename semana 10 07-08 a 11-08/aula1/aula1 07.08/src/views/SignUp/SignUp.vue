@@ -127,6 +127,13 @@ export default {
 
   methods : {
     handleCreateAccount() {
+
+        try {
+
+        } catch(error) {
+            
+        }
+
         //SCHEMA VALIDATION - variaveis com regras de validação, valida uma serie de coisas escrevendo somente a variavel de schema, atraves de instalação de uma biblioteca - Yup
 
         // 1 - criar o schema validation 
@@ -138,7 +145,7 @@ export default {
 
         })
 
-        schema.validationSync({
+        schema.validateSync({
             nome: this.nome,
             email: this.email,
             telefone: this.telefone
