@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="formulario">
+    <form @submit.prevent="handleCreateAccount" class="formulario">
       <h2>Criar Conta</h2>
       <div class="form-element">
         <label for="nome">Nome:</label>
@@ -99,11 +99,17 @@
           />
           Aceita termos de uso
         </label>
+
+        <button type="submit">Cadastrar</button>
     </form>
   </div>
 </template>
 
 <script>
+//importa biblioteca schema - yup
+import * as Yup from 'yup'
+
+
 export default {
   data() {
     return {
@@ -118,7 +124,29 @@ export default {
       tipoPlano: "1",
     };
   },
-};
+
+  methods : {
+    handleCreateAccount() {
+        //SCHEMA VALIDATION - variaveis com regras de validação, valida uma serie de coisas escrevendo somente a variavel de schema, atraves de instalação de uma biblioteca - Yup
+
+        // 1 - criar o schema validation 
+        const schema = yup.object().shape({
+            nome: yup.string().required("Nome é obrigatório"),
+            email: yup.string().email("Email não é válido").required("Email é obrigatório"),
+            telefone: yup.number().required("Telefone é obrigatório"),
+
+
+        })
+
+        schema.validationSync({
+            nome: this.nome,
+            email: this.email,
+            telefone: this.telefone
+        })
+
+    }
+  }
+}
 </script>
 
 <style scoped>
