@@ -11,6 +11,7 @@
           placeholder="Digite seu nome completo"
           v-model="nome"
         />
+        {{ this.errors.nome }}
       </div>
       <div class="form-element">
         <label for="email">E-mail:</label>
@@ -21,6 +22,7 @@
           placeholder="Digite seu email para cadastro"
           v-model="email"
         />
+        {{ this.errors.email }}
       </div>
       <div class="form-element">
         <label for="telefone">Telefone:</label>
@@ -31,9 +33,10 @@
           placeholder="Digite seu telefone"
           v-model="telefone"
         />
+        {{ this.errors.telefone }}
       </div>
       <div class="form-element">
-        <label for="senha">Senha</label>
+        <label for="senha">Senha:</label>
         <input
           class="form-input"
           type="password"
@@ -77,38 +80,38 @@
       </div>
 
       <div class="form-element">
-          <p>Selecione um tipo de plano:</p>
-          <div class="form-radio">
-              <input type="radio" value="1" v-model="tipoPlano" />
-              <label for="tipo-plano">Bronze</label>
-            </div>
-            <div class="form-radio">
-                <input type="radio" value="2" v-model="tipoPlano" />
-                <label for="tipo-plano">Prata</label>
-            </div>
-            <div class="form-radio">
-                <input type="radio" value="3" v-model="tipoPlano" />
-                <label for="tipo-plano">Premium</label>
-            </div>
+        <p>Selecione um tipo de plano:</p>
+        <div class="form-radio">
+          <input type="radio" value="1" v-model="tipoPlano" />
+          <label for="tipo-plano">Bronze</label>
         </div>
-        <label for="confirmar-termos">
-          <input
-            type="checkbox"
-            id="confirmar-termos"
-            v-model="confirmarTermos"
-          />
-          Aceita termos de uso
-        </label>
+        <div class="form-radio">
+          <input type="radio" value="2" v-model="tipoPlano" />
+          <label for="tipo-plano">Prata</label>
+        </div>
+        <div class="form-radio">
+          <input type="radio" value="3" v-model="tipoPlano" />
+          <label for="tipo-plano">Premium</label>
+        </div>
+      </div>
+      <label for="confirmar-termos">
+        <input
+          type="checkbox"
+          id="confirmar-termos"
+          v-model="confirmarTermos"
+        />
+        Aceita termos de uso
+      </label>
 
-        <button type="submit">Cadastrar</button>
+      <button type="submit">Criar conta</button>
     </form>
   </div>
 </template>
 
 <script>
 //importa biblioteca schema - yup
-import * as Yup from 'yup'
-
+import * as yup from "yup";
+import {captureErrorYup} from '../../utils/captureErrorYup.js'
 
 export default {
   data() {
@@ -122,38 +125,43 @@ export default {
       bio: "",
       confirmarTermos: true,
       tipoPlano: "1",
+
+      errors: {}
     };
   },
 
-  methods : {
+  methods: {
     handleCreateAccount() {
-
-        try {
-
-        } catch(error) {
-            
-        }
-
+      try {
         //SCHEMA VALIDATION - variaveis com regras de validação, valida uma serie de coisas escrevendo somente a variavel de schema, atraves de instalação de uma biblioteca - Yup
 
-        // 1 - criar o schema validation 
+        // 1 - criar o schema validation
         const schema = yup.object().shape({
-            nome: yup.string().required("Nome é obrigatório"),
-            email: yup.string().email("Email não é válido").required("Email é obrigatório"),
-            telefone: yup.number().required("Telefone é obrigatório"),
-
-
-        })
+          nome: yup.string().required("Nome é obrigatório"),
+          email: yup
+            .string()
+            .email("Email não é válido")
+            .required("Email é obrigatório"),
+          telefone: yup.string().required("Telefone é obrigatório"),
+        });
 
         schema.validateSync({
-            nome: this.nome,
-            email: this.email,
-            telefone: this.telefone
-        })
+          nome: this.nome,
+          email: this.email,
+          telefone: this.telefone,
+        }, {abortEarly: false});
+        // abortEarly para fazer a validação de todos os error e me retornar todos, pois por padrão ele faz 1 erro e da o return
 
-    }
-  }
-}
+        console.log("cheguei aqui");
+      } catch (error) {
+        if(error instanceof yup.ValidationError) {
+            // capturar os errors do yup
+            this.errors = captureErrorYup(error)
+        }
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
