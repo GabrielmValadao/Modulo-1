@@ -25,8 +25,15 @@
 
             <label for="biografia">Sua biografia:</label>
             <textarea id="biografia" cols="30" rows="10" placeholder="Fale sobre você" v-model="bio">
-
             </textarea>
+
+            <label for="confirmar-termos">
+                <input type="checkbox" id="confirmar-termos" v-model="confirmarTermos"> Aceita termos de uso
+            </label>
+
+            <input type="radio" value="1" v-model="tipoPlano" /> <label for="tipo-plano">Bronze</label>
+            <input type="radio" value="2" v-model="tipoPlano" /> <label for="tipo-plano">Prata</label>
+            <input type="radio" value="3" v-model="tipoPlano" /> <label for="tipo-plano">Premium</label>
 
         </form>
     </div>
@@ -42,8 +49,9 @@ export default {
             senha: '',
             confirmarSenha: '',
             sponsor: '',
-            bio: ''
-
+            bio: '',
+            confirmarTermos: true,
+            tipoPlano: '1'
         };
     },
 };
