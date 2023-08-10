@@ -4,30 +4,31 @@
             <h2>Criar Conta</h2>
             <div class="form-element">
                 <label for="nome">Nome:</label>
-                <input class="form-input" type="text" id="nome" placeholder="Digite seu nome completo" v-model="nome" />
+                <input class="form-input" type="text" id="nome" placeholder="Digite seu nome completo" v-model="nome" :class="{'input-error' : this.errors.nome}"/>
+
                 <span class="mensage-erro">{{ this.errors.nome }}</span>
             </div>
             <div class="form-element">
                 <label for="email">E-mail:</label>
                 <input class="form-input" type="email" id="email" placeholder="Digite seu email para cadastro"
-                    v-model="email" />
+                    v-model="email" :class="{'input-error' : this.errors.email}"/>
                 <span class="mensage-erro">{{ this.errors.email }}</span>
             </div>
             <div class="form-element">
                 <label for="telefone">Telefone:</label>
                 <input class="form-input" type="number" id="telefone" placeholder="Digite seu telefone"
-                    v-model="telefone" />
+                    v-model="telefone" :class="{'input-error' : this.errors.telefone}"/>
                 <span class="mensage-erro">{{ this.errors.telefone }}</span>
             </div>
             <div class="form-element">
                 <label for="senha">Senha:</label>
-                <input class="form-input" type="password" id="senha" placeholder="Digite sua senha" v-model="senha" />
+                <input class="form-input" type="password" id="senha" placeholder="Digite sua senha" v-model="senha" :class="{'input-error' : this.errors.senha}"/>
                 <span class="mensage-erro">{{ this.errors.senha }}</span>
             </div>
             <div class="form-element">
                 <label for="confimar-senha">Confirmar senha:</label>
                 <input class="form-input" type="password" id="confirmar-senha" placeholder="Confirme sua senha"
-                    v-model="confirmarSenha" />
+                    v-model="confirmarSenha" :class="{'input-error' : this.errors.confirmarSenha}"/>
                 <span class="mensage-erro">{{ this.errors.confirmarSenha }}</span>
             </div>
 
