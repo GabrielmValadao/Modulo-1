@@ -146,14 +146,19 @@ export default {
                     }
                 })
                 .then((response) => {
-                    if(!response.ok) throw Error()
-                    alert("Conta criada com sucesso!")
+                    if(response.ok === false) {
+                        throw new Error() 
+                        }
+                        return response.json()
+                    })
+                .then((response) => {
+                    alert('Cadastrado com sucesso')
+                    this.$router.push('/')
                 })
+
                 .catch (() => {
                     alert("Houve uma falha na criação da conta")
                 })
-
-                console.log("cheguei aqui");
             } catch (error) {
                 if (error instanceof yup.ValidationError) {
                     // capturar os errors do yup
