@@ -11,7 +11,7 @@
           placeholder="Digite seu nome completo"
           v-model="nome"
         />
-        {{ this.errors.nome }}
+        <span class="mensage-erro">{{ this.errors.nome }}</span>
       </div>
       <div class="form-element">
         <label for="email">E-mail:</label>
@@ -22,7 +22,7 @@
           placeholder="Digite seu email para cadastro"
           v-model="email"
         />
-        {{ this.errors.email }}
+        <span class="mensage-erro">{{ this.errors.email }}</span>
       </div>
       <div class="form-element">
         <label for="telefone">Telefone:</label>
@@ -33,7 +33,7 @@
           placeholder="Digite seu telefone"
           v-model="telefone"
         />
-        {{ this.errors.telefone }}
+        <span class="mensage-erro">{{ this.errors.telefone }}</span>
       </div>
       <div class="form-element">
         <label for="senha">Senha:</label>
@@ -44,6 +44,7 @@
           placeholder="Digite sua senha"
           v-model="senha"
         />
+        <span class="mensage-erro">{{ this.errors.senha }}</span>
       </div>
       <div class="form-element">
         <label for="confimar-senha">Confirmar senha:</label>
@@ -54,6 +55,7 @@
           placeholder="Confirme sua senha"
           v-model="confirmarSenha"
         />
+        <span class="mensage-erro">{{ this.errors.confirmarSenha }}</span>
       </div>
 
       <div class="form-element">
@@ -101,6 +103,7 @@
           v-model="confirmarTermos"
         />
         Aceita termos de uso
+        <span class="mensage-erro">{{ this.errors.confirmarTermos }}</span>
       </label>
 
       <button type="submit">Criar conta</button>
@@ -123,8 +126,8 @@ export default {
       confirmarSenha: "",
       sponsor: "",
       bio: "",
-      confirmarTermos: true,
       tipoPlano: "1",
+      confirmarTermos: true,
 
       errors: {}
     };
@@ -143,15 +146,24 @@ export default {
             .email("Email não é válido")
             .required("Email é obrigatório"),
           telefone: yup.string().required("Telefone é obrigatório"),
+          senha: yup.string().min(8, "A senha deve ser maior").max(20, "Deve ter entre 8-20 letras").required("A senha é obrigatória"),
+          confirmarSenha: yup.string().required("Confirmação necessária").oneOf([yup.ref('senha')], "As senhas devem coincidir"),
+          confirmarTermos: yup.boolean().isTrue("Os termos devem ser aceitos")
+
         });
 
         schema.validateSync({
           nome: this.nome,
           email: this.email,
           telefone: this.telefone,
+          senha: this.senha,
+          confirmarSenha: this.confirmarSenha,
+          confirmarTermos: this.confirmarTermos
         }, {abortEarly: false});
         // abortEarly para fazer a validação de todos os error e me retornar todos, pois por padrão ele faz 1 erro e da o return
 
+
+        //cadastro de usuario
         console.log("cheguei aqui");
       } catch (error) {
         if(error instanceof yup.ValidationError) {
@@ -198,7 +210,7 @@ export default {
   width: 100%;
 }
 
-.texto-erro {
+.mensage-erro {
   color: red;
   margin: 4px;
 }
