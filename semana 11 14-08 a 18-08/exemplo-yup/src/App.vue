@@ -29,7 +29,7 @@
  * 5 - Se tiver erros, valide quais foram os campos com erros e exiba uma mensagem para o usuario
  */
 
-import * as yup from "yup"
+import * as Yup from "yup"
 import {captureErrorYup} from '../src/assets/utils/captureErroYup' 
 
 export default {
