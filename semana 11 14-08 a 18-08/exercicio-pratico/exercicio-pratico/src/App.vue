@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Informações do endereço:</h1>
-    
+
     <p> CEP: {{ endereco.cep }}</p>
     <p> Logradouro: {{ endereco.logradouro }}</p>
     <p> Complemento: {{ endereco.complemento }}</p>
@@ -12,7 +12,7 @@
     <p> Gia: {{ endereco.gia }}</p>
     <p> DDD: {{ endereco.ddd }}</p>
     <p> Siafi: {{ endereco.siafi }}</p>
-    
+
   </div>
 </template>
 <script>
@@ -26,10 +26,8 @@ export default {
   },
   mounted() {
     axios.get('https://viacep.com.br/ws/01001000/json/')
-    .then(res => this.endereco = res.data)
+      .then(res => this.endereco = res.data)
   }
 }
 </script>
-<style scoped>
-  
-</style>
+<style scoped></style>
