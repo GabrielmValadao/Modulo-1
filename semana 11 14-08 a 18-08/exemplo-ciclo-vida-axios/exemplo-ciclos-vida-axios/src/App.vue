@@ -1,9 +1,8 @@
 
 <template >
   <div>
-    <h1>ciclos de vida
-
-    </h1>
+    <h1>ciclos de vida</h1>
+    <h2>Nome: {{ usuario.name }}</h2>
   </div>
 </template>
 <script>
@@ -19,8 +18,16 @@
 import axios from "axios"
 
 export default {
+  data() {
+    return {
+      usuario: {}
+    }
+  },
+
   mounted() {
-    axios.get()
+    axios.get('https://api.github.com/users/Bruno-Costa-fig')
+    .then(res => this.usuario = res.data) 
+    .catch(erro => console.log(erro))
   }
 }
 </script>
