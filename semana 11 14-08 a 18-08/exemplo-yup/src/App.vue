@@ -47,7 +47,7 @@ export default {
       
       const usuarioSchema = Yup.object().shape({
         name: Yup.string().required("Nome é obrigatório!"),
-        age: Yup.number().required("Informe sua idade!"),
+        age: Yup.string().required("Informe sua idade!"),
         email: Yup.string().email().required("Digite um e-mail válido!"),
       });
 
@@ -75,5 +75,7 @@ export default {
 form {
   display: flex;
   flex-direction: column;
+  align-items: baseline;
+  gap: 10px;
 }
 </style>
