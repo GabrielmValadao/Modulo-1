@@ -1,8 +1,7 @@
-const captureErroYup = (error) => {
-  error.inner.reduce((acc, currentValue) => {
-    const data = { ...acc };
-    data[currentValue.patch] = currentValue.message;
+export const captureErrorYup = (error) => 
+    error.inner.reduce((acc, currentValue) => { 
+        const data = {...acc}
+        data[currentValue.path] =  currentValue.message
+        return data
+     }, {})
 
-    return data;
-  }, {});
-};
