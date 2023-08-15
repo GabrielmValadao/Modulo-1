@@ -27,6 +27,7 @@ export default {
   mounted() {
     axios.get('https://viacep.com.br/ws/01001000/json/')
       .then(res => this.endereco = res.data)
+      .catch(erro => console.log(erro))
   }
 }
 </script>
