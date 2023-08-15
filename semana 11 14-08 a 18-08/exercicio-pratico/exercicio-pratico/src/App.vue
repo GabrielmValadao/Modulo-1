@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Informações do endereço</h1>
+    <h1>Informações do endereço:</h1>
+    
     <p> CEP: {{ endereco.cep }}</p>
     <p> Logradouro: {{ endereco.logradouro }}</p>
     <p> Complemento: {{ endereco.complemento }}</p>
