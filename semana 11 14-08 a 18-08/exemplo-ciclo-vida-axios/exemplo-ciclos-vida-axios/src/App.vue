@@ -9,6 +9,7 @@
   </form>
   <hr><br>
   <h2>Lista de usuários</h2>
+  <span> {{ listaUsuarios }}</span>
   </div>
 </template>
 <script>
