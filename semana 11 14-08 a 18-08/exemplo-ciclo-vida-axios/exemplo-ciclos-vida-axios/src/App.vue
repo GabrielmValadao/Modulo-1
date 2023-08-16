@@ -3,8 +3,8 @@
   <div>
     <h1>Formulario de cadastro de novo usuario</h1>
     <form @submit.prevent="handleSubmit">
-      <input type="text" placeholder="Digite o nome" v-model="nome" />
-    <input type="email" placeholder="Digite o email" v-model="email" />
+      <input type="text" placeholder="Digite o nome" v-model="cliente.nome" />
+    <input type="email" placeholder="Digite o email" v-model="cliente.email" />
     <button type="submit">Cadastrar usuário</button>
   </form>
   <hr><br>

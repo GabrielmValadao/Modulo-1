@@ -1,9 +1,14 @@
 {
-    "clientes": [
-        {
-          "id": 1,
-          "nome": "Bruno",
-          "email": "bruno@email.com"
-        }
-      ]
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "Bruno",
+      "email": "bruno@email.com"
+    },
+    {
+      "nome": "gabriel",
+      "email": "gabriel@gmail.com",
+      "id": 2
+    }
+  ]
 }
