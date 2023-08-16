@@ -1,8 +1,14 @@
 
 <template >
   <div>
-    <h1>ciclos de vida</h1>
-    <h2>Nome: {{ usuario.name }}</h2>
+    <h1>Formulario de cadastro de novo usuario</h1>
+    <form @submit.prevent="handleSubmit">
+      <input type="text" placeholder="Digite o nome" v-model="nome" />
+    <input type="email" placeholder="Digite o email" v-model="email" />
+    <button type="submit">Cadastrar usuário</button>
+  </form>
+  <hr><br>
+  <h2>Lista de usuários</h2>
   </div>
 </template>
 <script>
@@ -20,14 +26,30 @@ import axios from "axios"
 export default {
   data() {
     return {
-      usuario: {}
+      cliente: {
+        nome: "",
+        email: "",
+      },
+      listaUsuarios: []
     }
   },
-
-  mounted() {
-    axios.get('https://api.github.com/users/Bruno-Costa-fig')
-    .then(res => this.usuario = res.data) 
+  methods : {
+    handleSubmit() {
+      axios.post("http://localhost:50001/clientes", this.cliente)
+      .then(res => {
+        alert("Cliente cadastrado com sucesso!")
+    })
+      .catch(erro => console.log(erro))
+    this.getDados()
+  },
+  getDados(){
+    axios.get("http://localhost:50001/clientes")
+    .then(res => this.listaUsuarios = res.data)
     .catch(erro => console.log(erro))
+  }
+},
+  mounted() {
+    this.getDados()
   }
 }
 </script>
