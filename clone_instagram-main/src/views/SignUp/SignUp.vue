@@ -137,23 +137,15 @@ export default {
           data: {
             name: this.name,
             email: this.email,
-            phone: this.phone,
+            contact: this.phone,
             password: this.password,
-            verifyPassword: this.verifyPassword,
             sponsor: this.sponsor,
             bio: this.bio,
             confirmTerms: this.confirmTerms,
             planType: this.planType
           }
         })
-          .then((response) => {
-            console.log('entrei aqui no then')
-            if (response.ok === false) {
-              throw new Error()
-            }
-            return response.json()
-          })
-          .then((response) => {
+          .then(() => {
             alert('Cadastrado com sucesso')
             //depois que deu certo, encaminha o usuario de volta para a tela home
             this.$router.push('/')
@@ -218,6 +210,7 @@ export default {
 .message-error {
   color: red;
   margin: 4px;
+  
 }
 
 .input-error {
