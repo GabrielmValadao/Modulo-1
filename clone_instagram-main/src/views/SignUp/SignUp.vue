@@ -150,9 +150,13 @@ export default {
             //depois que deu certo, encaminha o usuario de volta para a tela home
             this.$router.push('/')
           })
-          .catch(() => {
-            alert('Houve uma falha ao tentar cadastrar')
-          })
+          .catch((error) => {
+            console.log(error)
+            if(error.response?.data?.message) {
+              alert(error.response.data.message)
+            } else {
+              alert('Houve uma falha ao tentar cadastrar') }
+            })
       } catch (error) {
         if (error instanceof yup.ValidationError) {
           console.log(error)
