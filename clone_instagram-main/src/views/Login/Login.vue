@@ -47,7 +47,13 @@ export default {
             password: this.password
           }
         })
-        //this.$router.push('/home')
+        .then(() => {
+          console.log('Logado com sucesso')
+        })
+        .catch(() => {
+          alert('Falha ao realizar login')
+        })
+        
       }
     },
     outroMetodo() {}
