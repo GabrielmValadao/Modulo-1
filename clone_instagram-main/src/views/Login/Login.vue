@@ -47,8 +47,16 @@ export default {
             password: this.password
           }
         })
-        .then(() => {
+        .then((response) => {
+          //pega o token após o login e salva no localStorage
+          localStorage.setItem("instagram_token", response.data.token)
+          //salva no localStorage o nome do usuario 
+          localStorage.setItem("instagram_name", response.data.name)
+
+          //joga o usuario para home após login
+          this.$router.push('/home')
           console.log('Logado com sucesso')
+
         })
         .catch(() => {
           alert('Falha ao realizar login')
