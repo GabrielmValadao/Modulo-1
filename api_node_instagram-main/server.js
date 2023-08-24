@@ -54,8 +54,8 @@ if (!fs.existsSync(dbFile)) {
 }
 
 // Conexão com o banco de dados
-const db = new sqlite3.Database(dbFile)
-    ;
+const db = new sqlite3.Database(dbFile);
+
 app.post('/api/register', async (req, res) => {
     const { name, email, contact, password, bio, sponsor, confirmTerms, planType } = req.body;
 
@@ -101,13 +101,14 @@ app.post('/api/register', async (req, res) => {
 app.post('/api/posts', async (req, res) => {
     const { title, description, url } = req.body;
 
-    // Obtém o token de autorização do cabeçalho da requisição
-    const token = req.headers.authorization.split(' ')[1];
-    console.log(req.headers.authorization)
-    if (!token) {
+    if (!req.headers.authorization) {
         return res.status(401).json({ message: 'Authorization token not found.' });
     }
 
+    // Obtém o token de autorização do cabeçalho da requisição
+
+    const token = req.headers.authorization.split(' ')[1];
+   
     try {
         // Verifica o token e obtém as informações do usuário
         const decodedToken = jwt.verify(token, SECRET_KEY, { ignoreExpiration: true });
@@ -159,6 +160,73 @@ app.post('/api/login', async (req, res) => {
 
         return res.status(200).json({ token, name: user.name, id: user.id });
     });
+});
+
+// Rota para listar todos os posts
+app.get('/api/posts', async (req, res) => {
+    // Obtém o token de autorização do cabeçalho da requisição
+    const token = req.headers.authorization.split(' ')[1];
+    
+    if (!token) {
+        return res.status(401).json({ message: 'Authorization token not found.' });
+    }
+
+    try {
+        // Verifica o token e obtém as informações do usuário
+        const decodedToken = jwt.verify(token, SECRET_KEY);
+
+        // Obtém o ID do usuário a partir do token decodificado
+        const userId = decodedToken.id;
+
+        // Obtém todos os posts do usuário a partir do banco de dados
+        db.all('SELECT * FROM posts WHERE user_id = ?', [userId], (err, posts) => {
+            if (err) {
+                return res.status(500).json({ message: 'Error fetching posts.' });
+            }
+
+            return res.status(200).json({ posts });
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: 'Error fetching posts.' });
+    }
+});
+
+// Rota para deletar um post por ID
+app.delete('/api/posts/:postId', async (req, res) => {
+    // Obtém o token de autorização do cabeçalho da requisição
+
+    if (!req.headers.authorization) {
+        return res.status(401).json({ message: 'Não foi enviado o token' });
+    }
+
+
+    const token = req.headers.authorization.split(' ')[1];
+    
+   
+
+    try {
+        // Verifica o token e obtém as informações do usuário
+        const decodedToken = jwt.verify(token, SECRET_KEY);
+
+        // Obtém o ID do usuário a partir do token decodificado
+        const userId = decodedToken.id;
+
+        // Obtém o ID do post a partir dos parâmetros da URL
+        const postId = req.params.postId;
+
+        // Deleta o post do usuário especificado pelo ID
+        db.run('DELETE FROM posts WHERE id = ? AND user_id = ?', [postId, userId], (err) => {
+            if (err) {
+                return res.status(500).json({ message: 'Error deleting post.' });
+            }
+
+            return res.status(200).json({ message: 'Post deleted successfully.' });
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ message: 'Error deleting post.' });
+    }
 });
 
 const PORT = 3000;
